@@ -1,0 +1,54 @@
+.home{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.vec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.vec img{
+    width: 80%;
+    height: 80%;
+    margin-right: 15%; 
+}
+.home-content{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10%;
+    width: 60%;
+}
+.tagline{
+    
+    font-size: 3rem;
+    font-weight: bolder;
+
+}
+.desc{
+    color: #a3a4a5;
+    font-size: 1.2rem;
+}
+.prim{
+    color: #86c232;
+}
+.seco{
+    color: #61892f;
+}
+.joinus{
+    margin-top: 5%;
+    align-self: stretch;
+}
