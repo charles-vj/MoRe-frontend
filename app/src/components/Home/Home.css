@@ -44,6 +44,7 @@
 }
 .prim{
     color: #86c232;
+    
 }
 .seco{
     color: #61892f;
@@ -51,4 +52,7 @@
 .joinus{
     margin-top: 5%;
     align-self: stretch;
+}
+@media screen and (max-width:1224px) {
+    
 }

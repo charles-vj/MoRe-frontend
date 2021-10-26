@@ -11,7 +11,18 @@ nav{
     letter-spacing: 5px;
     margin-top: 35%;
     margin-bottom: 35%;
-    color: #86c232;
+    background-image: linear-gradient(45deg, #61892f, #86c232);
+  
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
 }
 a {
     text-decoration: none;
@@ -37,7 +48,7 @@ a {
     width: 25px;
     height: 3px;
     margin: 5px;
-    background-color: black;
+    background-color: #61892f;
 }
 
 @media screen and (max-width:1224px) {
