@@ -15,6 +15,11 @@ div.card{
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    border: 2px solid #61892f;
+}
+.card:hover {
+    border: 2px solid #86c232;
+    scale: 2;
 }
 
 img{
