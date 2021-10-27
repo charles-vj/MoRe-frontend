@@ -1,18 +1,19 @@
 import React from 'react'
 import './cards.css';
+import pic from './pic.jpeg'
 
-function Card(props) {
+const Card = ({title, image}) => {
     return (
         <>
             <div className="card">
-                <div className="card__img">
-                    <img  src={props.image} alt="" />
+                <div className="card_img">
+                    <img  src={image} alt="" />
                 </div>
-                <div className="content">
-                     <h2 className>{props.title}</h2>
+                <div className="card_content">
+                    <h2>{title}</h2>
                 </div> 
             </div>
-         </>
+        </>
 
     )
 }
