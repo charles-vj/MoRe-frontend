@@ -7,7 +7,7 @@ function Home() {
         <div className="home">
             <div className="home-content">
                 <div className="content">
-                    <h1 className="tagline">Deciding <span className="seco">what</span> to <span className="prim">watch</span> next?</h1>
+                    <h1 className="tagline">Deciding <span className="seco">what</span> to <span className="prim">watch next?</span></h1>
                     <p className="desc">You’re in the right place. Tell us what movies or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations, through our recommendation system</p>
                     <div className="joinus"><Button name="Join Us" /></div>
                 </div>

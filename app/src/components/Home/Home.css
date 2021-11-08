@@ -43,12 +43,12 @@
     font-size: 1.2rem;
 }
 .prim{
-    color: #86c232;
+    background: -webkit-linear-gradient(left, #61892f, #86c232);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
     
 }
-.seco{
-    color: #61892f;
-}
+
 .joinus{
     margin-top: 5%;
     align-self: stretch;

@@ -66,4 +66,9 @@ form {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.trending-header{
+    font-size: 3rem;
 }

@@ -5,16 +5,29 @@ import {options} from './Data'
 import MenuList from './MenuList'
 import { createFilter } from "react-select";
 import Card from '../Card/Card'
+import Button from '../Accessories/Button/Button'
 
 function Search() {
 
     const [input,setInput] = useState("");
-    const [search,setSearch] = useState("tt0458525");
+    const [search,setSearch] = useState("Mission: impossible");
+    const [final,setFinal] = useState("tt0376994")
     const [movies,setMovies] = useState([]);
+    const [searches,setSearches] = useState([]);
+    const [trendings,setTrendings] = useState([]);
 
     useEffect(() => {
-        getRecommendedMovies();
+        getSearchedMovies();
+        
     }, [search])
+    useEffect(() => {
+        getRecommendedMovies();
+        
+    }, [final])
+    useEffect(() => {
+        getTrendings();
+        
+    }, [])
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,10 +40,34 @@ function Search() {
 
     const getRecommendedMovies = async () => {
         try {
-            const response = await fetch(`https://more-movie-recommendation.herokuapp.com/recommend-movie/${search}?limit=10`);
+            const response = await fetch(`https://more-movie-recommendation.herokuapp.com/recommend-movie/${final}?limit=10`);
             const data = await response.json();
             setMovies(data.result);
             console.log(data.result);
+            
+        }
+        catch {
+
+        }
+      }
+    const getSearchedMovies = async () => {
+        try {
+            const response = await fetch(`https://more-movie-recommendation.herokuapp.com/get-movies-from-title/${search}`);
+            const data = await response.json();
+            setSearches(data);
+            
+            
+        }
+        catch {
+
+        }
+      }
+    const getTrendings = async () => {
+        try {
+            const r = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=86b01c870d192d9c90bfbfbc18d9d37a`);
+            const d = await r.json();
+            setTrendings(d.results);
+            
             
         }
         catch {
@@ -48,8 +85,30 @@ function Search() {
             </form>
             <div className="carousel">
                 {
+                    searches.length >0 && searches.map((movie) => (
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            setFinal(movie.imdb_title_id)
+                        }}>{movie.title}</button>
+                    ))
+                }
+                {
+                    searches.length < 1 && <h1>cant find shit</h1>
+                }
+            </div>
+            <h1 className="trending-header">Movies similar to {search}</h1>
+            <div className="carousel">
+                {
                     movies.map((movie) => (
                         <Card key={movie.imdb_title_id} image={movie.poster_path} title={movie.title} />
+                    ))
+                }
+            </div>
+            <h1 className="trending-header">Trending Now!</h1>
+            <div className="carousel bl">
+                {
+                    trendings.map((trending) => (
+                        <Card key ={trending.backdrop_path} image={"https://image.tmdb.org/t/p/w500" + trending.poster_path} title={trending.title} />
                     ))
                 }
             </div>
