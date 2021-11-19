@@ -19,14 +19,14 @@ div.card{
 }
 .card:hover {
     border: 2px solid #86c232;
-    scale: 2;
+    scale: 1.1;
 }
 
 img{
     padding: 5%;
     position: relative;
     width: 19.4vw;
-    height: 310px; 
+    height: 50vh; 
     border-radius: 12%;
      
 }

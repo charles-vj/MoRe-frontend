@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import './Search.css'
-import Select from 'react-select'
-import {options} from './Data'
-import MenuList from './MenuList'
-import { createFilter } from "react-select";
 import Card from '../Card/Card'
-import Button from '../Accessories/Button/Button'
+import Loader from './Loader'
+import Btn from '../Accessories/Btn';
 
 function Search() {
 
@@ -15,6 +12,9 @@ function Search() {
     const [movies,setMovies] = useState([]);
     const [searches,setSearches] = useState([]);
     const [trendings,setTrendings] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [loading3, setLoading3] = useState(false)
+    const [loading2, setLoading2] = useState(false)
 
     useEffect(() => {
         getSearchedMovies();
@@ -40,33 +40,37 @@ function Search() {
 
     const getRecommendedMovies = async () => {
         try {
+            setLoading2(true);
             const response = await fetch(`https://more-movie-recommendation.herokuapp.com/recommend-movie/${final}?limit=10`);
             const data = await response.json();
             setMovies(data.result);
             console.log(data.result);
+            setLoading2(false);
             
         }
         catch {
-
+            
         }
-      }
+    }
     const getSearchedMovies = async () => {
         try {
+            setLoading(true);
             const response = await fetch(`https://more-movie-recommendation.herokuapp.com/get-movies-from-title/${search}`);
             const data = await response.json();
             setSearches(data);
-            
-            
+            setLoading(false);
         }
         catch {
-
+            
         }
-      }
+    }
     const getTrendings = async () => {
         try {
+            setLoading3(true);
             const r = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=86b01c870d192d9c90bfbfbc18d9d37a`);
             const d = await r.json();
             setTrendings(d.results);
+            setLoading3(false);
             
             
         }
@@ -85,23 +89,23 @@ function Search() {
             </form>
             <div className="carousel">
                 {
-                    searches.length >0 && searches.map((movie) => (
+                    searches.length < 1 && !loading && <h1>Wasn't able to find anything with the keyword {input}</h1>
+                }
+                {
+                    !loading ? searches.map((movie) => (
                         <button onClick={(e) => {
                             e.preventDefault();
                             setFinal(movie.imdb_title_id)
                         }}>{movie.title}</button>
-                    ))
-                }
-                {
-                    searches.length < 1 && <h1>cant find shit</h1>
+                    )) : <Loader />
                 }
             </div>
             <h1 className="trending-header">Movies similar to {search}</h1>
             <div className="carousel">
                 {
-                    movies.map((movie) => (
+                    !loading2 ? movies.map((movie) => (
                         <Card key={movie.imdb_title_id} image={movie.poster_path} title={movie.title} />
-                    ))
+                    )) : <Loader />
                 }
             </div>
             <h1 className="trending-header">Trending Now!</h1>
