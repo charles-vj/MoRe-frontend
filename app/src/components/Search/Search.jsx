@@ -110,15 +110,8 @@ function Search() {
                     )) : <Loader />
                 }
             </div>
-            <h1 className="trending-header">Trending Now!</h1>
-            <div className="carousel bl">
-                {
-                    trendings.map((trending) => (
-                        <Card key ={trending.backdrop_path} image={"https://image.tmdb.org/t/p/w500" + trending.poster_path} title={trending.title} />
-                    ))
-                }
-            </div>
-            <div className="carousel"></div>
+            
+            
         </div>
     )
 }
