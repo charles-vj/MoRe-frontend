@@ -11,6 +11,7 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 3%;
 }
 .select {
     background-color: inherit;
@@ -76,8 +77,8 @@ form {
     color : #a3a4a5
 }
 .container {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2%;
+
     display: flex;
     align-items: center;
     justify-content: center;

@@ -87,6 +87,8 @@ function Search() {
                 <input placeholder="Movie Name" value={input} onChange={updateInput} className="select"/>
                 <button className="submit">&#8594;</button>
             </form>
+            
+            {searches.length > 1 && !loading ? <h1 className="invalid">Did you mean any of these movies ?</h1> : <h1 className="invalid"></h1>}
             <div className="container">
                 {
                     searches.length < 1 && !loading && <h1 className="invalid">Please enter a valid movie name above !</h1>
