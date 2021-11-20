@@ -6,7 +6,7 @@ import Btn from '../Accessories/Btn';
 
 function Search() {
 
-    const [input,setInput] = useState("");
+    const [input,setInput] = useState("Mission: impossible");
     const [search,setSearch] = useState("Mission: impossible");
     const [final,setFinal] = useState("tt0376994")
     const [movies,setMovies] = useState([]);
@@ -87,20 +87,20 @@ function Search() {
                 <input placeholder="Movie Name" value={input} onChange={updateInput} className="select"/>
                 <button className="submit">&#8594;</button>
             </form>
-            <div className="carousel">
+            <div className="container">
                 {
-                    searches.length < 1 && !loading && <h1>Wasn't able to find anything with the keyword {input}</h1>
+                    searches.length < 1 && !loading && <h1 className="invalid">Please enter a valid movie name above !</h1>
                 }
                 {
                     !loading ? searches.map((movie) => (
-                        <button onClick={(e) => {
+                        <button className="btn" onClick={(e) => {
                             e.preventDefault();
                             setFinal(movie.imdb_title_id)
                         }}>{movie.title}</button>
                     )) : <Loader />
                 }
             </div>
-            <h1 className="trending-header">Movies similar to {search}</h1>
+            <h1 className="trending-header">Recommendations...</h1>
             <div className="carousel">
                 {
                     !loading2 ? movies.map((movie) => (

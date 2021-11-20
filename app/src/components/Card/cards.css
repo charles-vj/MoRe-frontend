@@ -3,7 +3,7 @@ div.card{
 }
 
 .card{
-    height: 60vh;
+    height: 70vh;
     overflow: hidden;
     transition: 0.3s;
     width: 20vw;
@@ -41,6 +41,7 @@ img{
     font-size: 0.9rem;
     margin-bottom: 25%;
     text-align: center;
+    text-overflow: ellipsis;
 }
 
 

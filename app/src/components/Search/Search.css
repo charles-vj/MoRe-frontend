@@ -72,3 +72,33 @@ form {
 .trending-header{
     font-size: 3rem;
 }
+.invalid {
+    color : #a3a4a5
+}
+.container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+
+}
+.btn {
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #61892f;
+    border-radius: 10px;
+    color: white;
+    width: 15vw;
+    min-height: 10vh;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn:hover {
+    background-color: #86c232;
+    color: black;
+}
