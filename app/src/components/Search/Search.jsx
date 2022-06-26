@@ -82,19 +82,21 @@ function Search() {
 
     return (
         <div className="search">
-            <h1>Search and browse movies!</h1>
+            <h1 className="header">Search and browse movies!</h1>
+            <div className="search-sec">
             <form action="submit" onSubmit={handleSubmit}>
                 <input placeholder="Movie Name" value={input} onChange={updateInput} className="select"/>
                 <button className="submit">&#8594;</button>
             </form>
+            </div>
             
             {searches.length > 0 && !loading ? <h1 className="invalid">Did you mean any of these movies ?</h1> : <h1 className="invalid"></h1>}
             <div className="container">
                 {
-                    searches.length < 1 && !loading && <h1 className="invalid">Please enter a valid movie name above !</h1>
+                    searches.length < 1 && !loading && <div className="invalid">Please enter a valid movie name above !</div>
                 }
                 {
-                    !loading ? searches.map((movie) => (
+                    !loading ? searches.slice(0,10).map((movie) => (
                         <button className="btn" onClick={(e) => {
                             e.preventDefault();
                             setFinal(movie.imdb_title_id)
@@ -102,7 +104,7 @@ function Search() {
                     )) : <Loader />
                 }
             </div>
-            <h1 className="trending-header">Recommendations...</h1>
+            <h1>Recommendations...</h1>
             <div className="carousel">
                 {
                     !loading2 ? movies.map((movie) => (

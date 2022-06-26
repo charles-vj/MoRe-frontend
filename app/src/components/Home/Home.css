@@ -53,8 +53,22 @@
     margin-top: 5%;
     align-self: stretch;
 }
-@media screen and (max-width:1224px) {
- 
-    
+@media screen and (max-width:800px) {
+    .home {
+        flex-direction: column;
+        height: auto;
+    } 
+    .home-content {
+        width: 100%;
+    }  
+    .content {
+        width: 80%;
+    } 
+    .vec {
+        width: 100%;
+    } 
+    .vec img{
+        margin-right: 0%; 
+    }
 }
 

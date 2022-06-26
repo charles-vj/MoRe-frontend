@@ -2,17 +2,15 @@ div.card{
     padding: 0;
 }
 
-.card{
-    height: 70vh;
+.card{  
     overflow: hidden;
     transition: 0.3s;
-    width: 20vw;
+    width: 20%;
     margin-top: 2%;
     margin-right: 2%;
     background-color: #302f2f;
     border-radius: 10%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     border: 2px solid #61892f;
@@ -25,8 +23,7 @@ div.card{
 img{
     padding: 5%;
     position: relative;
-    width: 19.4vw;
-    height: 50vh; 
+    width: 100%;
     border-radius: 12%;
      
 }
@@ -43,5 +40,19 @@ img{
     text-align: center;
     text-overflow: ellipsis;
 }
-
+@media screen and (max-width:1200px) {
+    .card {
+        width: 30%;
+    }
+}
+@media screen and (max-width:768px) {
+    .card {
+        width: 40%;
+    }
+}
+@media screen and (max-width:600px) {
+    .card {
+        width: 80%;
+    }
+}
 

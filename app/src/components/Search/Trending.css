@@ -22,10 +22,10 @@ h1 {
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
 }
-.carousel {
+.carousel1 {
     width: 90vw;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 5%;

@@ -5,9 +5,15 @@
     justify-content: center;
     flex-direction: column;
     font-family: 'Montserrat' sans-serif;
+    text-align: center;
+
+}
+.search-sec {
+    width: 50%;
+    padding: 0 1rem;
 }
 form {
-    width: 40%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +39,7 @@ form {
     height: 2.8rem;
     width: 2.8rem;
     border-radius: 50%;
+    margin-left: 5%;
     background-color: inherit;
     border: 2px solid #86c232;
     color: #86c232;
@@ -64,7 +71,7 @@ form {
 .carousel {
     width: 90vw;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 5%;
@@ -74,16 +81,17 @@ form {
     font-size: 3rem;
 }
 .invalid {
-    color : #a3a4a5
+    color : #ff5555;
+    font-size: 2rem;
 }
 .container {
     margin-top: 2%;
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 80vw;
+    width: 100%;
+    padding: 0 10%;
 
 }
 .btn {
@@ -92,7 +100,7 @@ form {
     border: 2px solid #61892f;
     border-radius: 10px;
     color: white;
-    width: 15vw;
+    width: 20%;
     min-height: 10vh;
     margin-right: 5%;
     margin-bottom: 5%;
@@ -102,4 +110,24 @@ form {
 .btn:hover {
     background-color: #86c232;
     color: black;
+}
+
+@media screen and (max-width:768px) {
+    .search-sec {
+        width: auto;
+    }
+    .submit {
+        margin-left: 5%
+    }
+    .btn {
+        width: 40%;
+    }
+    .container {
+        padding: 0 5%;
+    }
+}
+@media screen and (max-width:500px) {
+    .btn {
+        width: 80%;
+    }
 }
