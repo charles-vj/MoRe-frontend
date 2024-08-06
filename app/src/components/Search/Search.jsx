@@ -82,7 +82,7 @@ function Search() {
 
     return (
         <div className="search">
-            <h1 className="header">Search and browse movies!</h1>
+            <h1 className="header">Enter the type of issue</h1>
             <div className="search-sec">
             <form action="submit" onSubmit={handleSubmit}>
                 <input placeholder="Movie Name" value={input} onChange={updateInput} className="select"/>
@@ -104,7 +104,7 @@ function Search() {
                     )) : <Loader />
                 }
             </div>
-            <h1>Recommendations...</h1>
+            <h1>Possible causes...</h1>
             <div className="carousel">
                 {
                     !loading2 ? movies.map((movie) => (

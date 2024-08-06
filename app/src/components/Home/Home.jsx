@@ -8,8 +8,8 @@ function Home() {
         <div className="home">
             <div className="home-content">
                 <div className="content">
-                    <h1 className="tagline">Deciding <span className="seco">what</span> to <span className="prim">watch next?</span></h1>
-                    <p className="desc">You’re in the right place. Tell us what movies or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations, through our recommendation system</p>
+                    <h1 className="tagline">Deciding <span className="seco">what</span> could be<span className="prim"> the issue?</span></h1>
+                    <p className="desc">You’re in the right place. Tell us what problems you see and then we'll help you</p>
                     <div className="joinus"><Link to = "/search"><Button name="Search" /></Link></div>
                 </div>
             </div>
