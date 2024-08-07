@@ -14,8 +14,10 @@ function Search() {
 
     const [input,setInput] = useState("Leak");
     const [search,setSearch] = useState("Mission: impossible");
-    const [final,setFinal] = useState("")
+    const [caught,setCaught] = useState(true)
+    const [final,setFinal] = useState()
     const [movies,setMovies] = useState([1,86,"FIRE"]);
+
     const [searches,setSearches] = useState([]);
     const [trendings,setTrendings] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -75,6 +77,11 @@ function Search() {
                     max = ex;
                     maxi=i;
                 }
+            }
+            if (max<0.7) {
+                setCaught(false);
+            } else {
+                setCaught(true);
             }
             let description
             // console.log(PHRASE[0])
@@ -141,10 +148,12 @@ function Search() {
                     )) : <Loader />
                 }
             </div> */}
+            
             <div className="carousel">
                 {
-                        
-                        <Card key={movies[0]} image = {`./images/${movies[1]}.png`} title={INDICES[movies[2]]} desc = {movies[3]} />
+                        !caught && <Card key={movies[0]} title={"NULL"} desc = {"No incident recorded"} />
+}{        
+                        caught && <Card key={movies[0]} image = {`./images/${movies[1]}.png`} title={INDICES[movies[2]]} desc = {movies[3]} />
                     // <Loader />
                 }
             </div>
