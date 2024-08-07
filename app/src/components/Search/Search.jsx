@@ -1,31 +1,40 @@
 import React, {useEffect, useState} from 'react'
 import './Search.css'
 import Card from '../Card/Card'
+import INDICES from '../../indices.json'
+import stringComparison from 'string-comparison'
+import { stringSimilarity } from "string-similarity-js";
+import { PHRASE } from '../../phrases'
+import { sevs } from '../../severities'
+import { imageArray } from '../../imagelist'
 import Loader from './Loader'
 import Btn from '../Accessories/Btn';
 
 function Search() {
 
-    const [input,setInput] = useState("Mission: impossible");
+    const [input,setInput] = useState("Leak");
     const [search,setSearch] = useState("Mission: impossible");
-    const [final,setFinal] = useState("tt0376994")
-    const [movies,setMovies] = useState([]);
+    const [final,setFinal] = useState("")
+    const [movies,setMovies] = useState([1,86,"FIRE"]);
     const [searches,setSearches] = useState([]);
     const [trendings,setTrendings] = useState([]);
     const [loading, setLoading] = useState(false)
     const [loading3, setLoading3] = useState(false)
     const [loading2, setLoading2] = useState(false)
+    const severity = [];
+
+    
 
     useEffect(() => {
         getSearchedMovies();
         
     }, [search])
     useEffect(() => {
-        getRecommendedMovies();
+        // getRecommendedMovies();
         
     }, [final])
     useEffect(() => {
-        getTrendings();
+        // getTrendings();
         
     }, [])
 
@@ -53,12 +62,40 @@ function Search() {
         }
     }
     const getSearchedMovies = async () => {
+
         try {
             setLoading(true);
-            const response = await fetch(`https://more-movie-recommendation.herokuapp.com/get-movies-from-title/${search}`);
-            const data = await response.json();
-            setSearches(data);
-            setLoading(false);
+            // const response = INDICES;
+            let cos = stringComparison.jaccardIndex
+            let max=0;
+            let maxi;
+            for (let i = 0; i < PHRASE.length; i++) {
+                let ex = cos.similarity(input,PHRASE[i])
+                if(ex>max) {
+                    max = ex;
+                    maxi=i;
+                }
+            }
+            let description
+            // console.log(PHRASE[0])
+            console.log(PHRASE[maxi])
+            console.log(sevs[maxi])
+            console.log(max,maxi,sevs[maxi],PHRASE[maxi] )
+            if(sevs[maxi]==1) {
+                description="Minimal danger predicted"
+            }
+            if(sevs[maxi]==2) {
+                description="There are chances of an accident"
+            }
+            if(sevs[maxi]==3) {
+                description="High Alert"
+            }
+            setMovies([max,maxi,PHRASE[maxi],description])
+            // console.log(imageArray[maxi].src)
+            // console.log(movies)
+            // const data = await response.json();
+            // setSearches(data);
+            // setLoading(false);
         }
         catch {
             
@@ -90,10 +127,10 @@ function Search() {
             </form>
             </div>
             
-            {searches.length > 0 && !loading ? <h1 className="invalid">Did you mean any of these movies ?</h1> : <h1 className="invalid"></h1>}
+            {/* {searches.length > 0 && !loading ? <h1 className="invalid">Did you mean any of these movies ?</h1> : <h1 className="invalid"></h1>}
             <div className="container">
                 {
-                    searches.length < 1 && !loading && <div className="invalid">Please enter a valid movie name above !</div>
+                    searches.length < 1 && !loading && <div className="invalid">This might be a totally new issue</div>
                 }
                 {
                     !loading ? searches.slice(0,10).map((movie) => (
@@ -103,13 +140,12 @@ function Search() {
                         }}>{movie.title}</button>
                     )) : <Loader />
                 }
-            </div>
-            <h1>Possible causes...</h1>
+            </div> */}
             <div className="carousel">
                 {
-                    !loading2 ? movies.map((movie) => (
-                        <Card key={movie.imdb_title_id} image={movie.poster_path} title={movie.title} />
-                    )) : <Loader />
+                        
+                        <Card key={movies[0]} image = {`./images/${movies[1]}.png`} title={INDICES[movies[2]]} desc = {movies[3]} />
+                    // <Loader />
                 }
             </div>
             
