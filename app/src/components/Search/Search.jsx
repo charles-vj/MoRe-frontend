@@ -89,13 +89,13 @@ function Search() {
             console.log(sevs[maxi])
             console.log(max,maxi,sevs[maxi],PHRASE[maxi] )
             if(sevs[maxi]==1) {
-                description="Minimal danger predicted"
+                description="There is a probability of incident with minimal monetary loss"
             }
             if(sevs[maxi]==2) {
-                description="There are chances of an accident"
+                description="Medium to high monetary loss expected"
             }
             if(sevs[maxi]==3) {
-                description="High Alert"
+                description="ALERT : High monetary loss expected"
             }
             setMovies([max,maxi,PHRASE[maxi],description])
             // console.log(imageArray[maxi].src)
