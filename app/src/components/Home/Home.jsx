@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Accessories/Button/Button'
 import './Home.css'
-import pic from './homepic2.svg'
+import pic from './settings2.svg'
 import {Link} from 'react-router-dom'
 function Home() {
     return (
